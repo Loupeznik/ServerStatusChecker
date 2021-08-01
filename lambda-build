@@ -1,0 +1,6 @@
+#/usr/bin/env bash
+
+GOOS=linux GOARCH=amd64 go build -o build/main src/lambda/lambda.go
+cp .env build
+zip -rj build/main.zip build/main build/.env
+rm build/main build/.env
