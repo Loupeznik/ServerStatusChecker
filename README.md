@@ -24,7 +24,7 @@ cp .env.example .env # fill the .env values with your Slack creds
 go run src/main/main.go
 ```
 
-You can also fill the *hosts* slice and build an executable with `go build .`, in that case, the .env file needs to exist in the same directory as the executable (or the .env variables need to be exported as your environment variables).
+You can also fill the *hosts* slice and build an executable with `go build src/main`, in that case, the .env file needs to exist in the same directory as the executable.
 
 ## License
 This project is MIT licensed.
