@@ -19,12 +19,14 @@ func CheckHosts(hosts []string, bot Bot) {
 		request, err := httpClient.Get("/")
 
 		if err != nil {
-			panic(err)
+			SendMessage("Server at "+host+" was not found", bot)
+			continue
 		}
 
 		response, err := httpClient.Do(request)
 		if err != nil {
-			panic(err)
+			SendMessage("Server at "+host+" was not found", bot)
+			continue
 		}
 
 		if response.Get().StatusCode != 200 {
@@ -48,7 +50,7 @@ func SendMessage(message string, bot Bot) {
 		log.Fatalf("%s\n", err)
 	}
 
-	log.Printf("Message sent " + message)
+	log.Printf("Message sent: " + message)
 }
 
 func LoadEnv() {
